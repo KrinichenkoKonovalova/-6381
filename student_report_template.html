@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Шаблон отчёта студента</title>
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Аудит лекционной аудитории</title>
+<style>
     :root{
       --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
       --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e; --warn:#9a6700;
@@ -52,149 +52,183 @@
       .hero,.section{box-shadow:none}
       .btn,.nav{display:none !important}
     }
-  </style>
+  
+.text-list{margin:0;padding-left:20px}
+.text-list li{margin:8px 0}
+.static-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.info-row{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}
+.compare-block{margin-top:18px;border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare-card{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fbfcfe;text-align:center}
+.compare-card img{width:100%;height:310px;object-fit:cover;border-radius:12px;display:block}
+.caption{margin:10px 0 0;font-weight:700;color:var(--muted)}
+@media (max-width:900px){.static-grid,.compare-grid{grid-template-columns:1fr}.compare-card img{height:auto}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <div class="eyebrow">Шаблон отчёта</div>
-      <h1>Аудит рабочего пространства и проект улучшения</h1>
-      <p>Заполните поля ниже, перенесите результаты из чек-листа и оформите собственную итоговую страницу.</p>
-      <div class="nav">
-        <a class="btn primary" href="student_checklist_interactive.html">Вернуться к чек-листу</a>
-        <a class="btn secondary" href="student_html_guide.html">Инструкция по HTML и ИИ</a>
-        <a class="btn secondary" href="student_publish_site_guide.html">Публикация сайта</a>
-        <button class="btn secondary" onclick="window.print()">Сохранить как PDF / печать</button>
-      </div>
-    </section>
+<div class="wrap">
+<section class="hero">
+<div class="eyebrow">Готовый отчёт</div>
+<h1>Аудит лекционной аудитории и проект модернизации</h1>
+<p>Итоговая работа по анализу учебного пространства Факультета экономики и менеджмента. Текст и изображения встроены в HTML и не зависят от localStorage.</p>
+<div class="nav">
+<a class="btn primary" href="student_checklist_interactive.html">Открыть чек-лист</a>
+<a class="btn secondary" href="index.html">Главная страница</a>
+<button class="btn secondary" onclick="window.print()">Сохранить как PDF / печать</button>
+</div>
+</section>
 
-    <section class="section">
-      <h2>1. Общая информация</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>ФИО / автор</h3>
-          <input type="text" id="studentName" class="field" placeholder="Введите имя автора" />
-        </div>
-        <div class="card">
-          <h3>Объект анализа</h3>
-          <input type="text" id="objectName" class="field" placeholder="Например: домашнее рабочее место, аудитория, офисный стол" />
-        </div>
-      </div>
-      <div style="margin-top:14px;">
-        <h3>Назначение рабочего пространства</h3>
-        <textarea id="purpose" placeholder="Кратко опишите, для каких задач используется это место: учёба, документы, аналитика, программирование, графика и т.д."></textarea>
-      </div>
-    </section>
+<section class="section">
+<h2>1. Общая информация</h2>
+<div class="static-grid">
+<div class="info-row"><h3>ФИО / авторы</h3><p>Громова Виктория Александровна, Криниченко Кристина Евгеньевна, Коновалова Анастасия Владимировна</p></div>
+<div class="info-row"><h3>Объект анализа</h3><p>Лекционная аудитория Факультета экономики и менеджмента.</p></div>
+</div>
+<div class="info-row" style="margin-top:14px;">
+<h3>Назначение рабочего пространства</h3>
+<p>Аудитория предназначена для проведения лекционных и практических занятий, демонстрации презентаций, объяснения учебного материала и организации работы студентов во время образовательного процесса. Пространство используется преподавателями и студентами факультета, поэтому должно обеспечивать хорошую видимость доски и экрана, удобную посадку, достаточное освещение и возможность применения современных цифровых образовательных технологий.</p>
+</div>
+</section>
 
-    <section class="section">
-      <h2>2. Итоги чек-листа</h2>
-      <div class="summary">
-        <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">—</div></div>
-        <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">—</div></div>
-        <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">—</div></div>
-        <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">—</div></div>
-      </div>
-    </section>
+<section class="section">
+<h2>2. Итоги чек-листа</h2>
+<div class="summary">
+<div class="sum-card"><strong>Набрано баллов</strong><div class="big">37</div></div>
+<div class="sum-card"><strong>Максимум</strong><div class="big">48</div></div>
+<div class="sum-card"><strong>Процент</strong><div class="big">77%</div></div>
+<div class="sum-card"><strong>Результат</strong><div style="margin-top:8px;font-weight:700;">Хорошая основа для модернизации, есть точки для улучшения</div></div>
+</div>
+</section>
 
-    <section class="section">
-      <h2>3. Ключевые наблюдения</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Сильные стороны</h3>
-          <textarea id="strengths" class="small" placeholder="Перенесите из чек-листа или сформулируйте заново."></textarea>
-        </div>
-        <div class="card">
-          <h3>Проблемные зоны</h3>
-          <textarea id="problems" class="small" placeholder="Опишите основные ограничения и слабые места."></textarea>
-        </div>
-      </div>
-      <div style="margin-top:14px;">
-        <h3>Три улучшения с наибольшим эффектом</h3>
-        <textarea id="improvements" placeholder="Укажите конкретные изменения и ожидаемый результат."></textarea>
-      </div>
-    </section>
+<section class="section">
+<h2>3. Ключевые наблюдения</h2>
+<div class="grid">
+<div class="card">
+<h3>Сильные стороны</h3>
+<ul class="text-list">
+<li>Аудитория имеет достаточную вместимость для проведения лекционных занятий.</li>
+<li>В помещении есть базовое мультимедийное оборудование: проектор, экран и компьютер преподавателя.</li>
+<li>Планировка аудитории позволяет организовать работу учебной группы и демонстрацию материалов.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Проблемные зоны</h3>
+<ul class="text-list">
+<li>Мебель и интерьер аудитории выглядят устаревшими и нуждаются в обновлении.</li>
+<li>Отсутствует интерактивная доска, ограничивающая возможности современного преподавания.</li>
+<li>Рабочее место преподавателя перегружено проводами и требует более аккуратной организации.</li>
+</ul>
+</div>
+</div>
+<div class="card" style="margin-top:14px;">
+<h3>Три улучшения с наибольшим эффектом</h3>
+<ul class="text-list">
+<li>Установка интерактивной доски или интерактивной панели для работы с цифровыми материалами.</li>
+<li>Обновление парт, стульев и преподавательского стола на более современную и удобную мебель.</li>
+<li>Организация современного рабочего места преподавателя с аккуратным размещением компьютера, периферии и кабелей.</li>
+</ul>
+</div>
+</section>
 
-    <section class="section">
-      <h2>4. Проект улучшения</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Что можно улучшить без существенных затрат</h3>
-          <textarea id="noBudget" class="small" placeholder="Например: поднять монитор, изменить расположение клавиатуры, организовать кабели, переставить технику."></textarea>
-        </div>
-        <div class="card">
-          <h3>Что потребует бюджета, но даст заметный эффект</h3>
-          <textarea id="withBudget" class="small" placeholder="Например: заменить монитор, увеличить ОЗУ, поставить SSD, улучшить освещение, сменить стол или кресло."></textarea>
-        </div>
-      </div>
-      <div style="margin-top:14px;">
-        <h3>Обоснование проекта</h3>
-        <textarea id="justification" placeholder="Объясните, почему предложенные улучшения полезны с точки зрения эргономики, техники, производительности, срока службы и рациональности закупки."></textarea>
-      </div>
-    </section>
+<section class="section">
+<h2>4. Проект улучшения</h2>
+<div class="grid">
+<div class="card">
+<h3>Что можно улучшить без существенных затрат</h3>
+<ul class="text-list">
+<li>Навести порядок на рабочем месте преподавателя и убрать визуальный беспорядок.</li>
+<li>Организовать кабели и подключение оборудования более аккуратно и безопасно.</li>
+<li>Пересмотреть расстановку мебели для улучшения проходов и обзора экрана.</li>
+<li>Добавить визуальные элементы навигации и учебные материалы в едином стиле.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Что потребует бюджета, но даст заметный эффект</h3>
+<ul class="text-list">
+<li>Установить интерактивную доску или интерактивную панель.</li>
+<li>Обновить мебель для студентов и преподавателя.</li>
+<li>Модернизировать освещение и добавить мягкую декоративную подсветку.</li>
+<li>Обновить компьютерное и мультимедийное оборудование преподавателя.</li>
+</ul>
+</div>
+</div>
+<div class="card" style="margin-top:14px;">
+<h3>Обоснование проекта</h3>
+<p>Современная лекционная аудитория должна быть не только местом размещения студентов, но и полноценным образовательным пространством. Наличие интерактивной доски, удобной мебели, качественного освещения и организованного рабочего места преподавателя повышает качество восприятия материала и делает занятия более наглядными.</p>
+<p>Модернизация позволит улучшить условия обучения, повысить комфорт студентов и преподавателей, а также расширить возможности использования цифровых инструментов в учебном процессе.</p>
+</div>
+</section>
 
-    <section class="section">
-      <h2>5. Визуальные материалы</h2>
-      <p class="lead">Здесь можно вставить реальные фотографии, схему, референсы или оставить место под изображения перед сдачей.</p>
-      <div class="gallery">
-        <div class="ph">Место для изображения 1</div>
-        <div class="ph">Место для изображения 2</div>
-      </div>
-    </section>
+<section class="section">
+<h2>Ожидаемый эффект проекта</h2>
+<p>После модернизации аудитория станет более удобной, современной и технологичной. Студенты смогут лучше воспринимать учебный материал, а преподаватель получит более удобное рабочее место для демонстрации презентаций, работы с интерактивными материалами и проведения лекций.</p>
+</section>
 
-    <section class="section">
-      <h2>6. Итоговый вывод</h2>
-      <textarea id="finalConclusion" placeholder="Сформулируйте короткий вывод: насколько рабочее пространство соответствует задачам, какие у него главные достоинства, какие ограничения и какие улучшения являются наиболее рациональными."></textarea>
-      <div class="note" style="margin-top:14px;"><strong>Совет:</strong> хороший вывод должен соединять наблюдения, баллы, смысловые выводы и реальные предложения по улучшению.</div>
-    </section>
+<section class="section">
+<h2>Целевая аудитория проекта</h2>
+<p>Основными пользователями аудитории являются студенты Факультета экономики и менеджмента, преподаватели университета и приглашённые специалисты, проводящие лекционные и практические занятия.</p>
+</section>
 
-    
-    <section class="section">
-      <h2>7. Публикация итоговой работы</h2>
-      <p class="lead">После заполнения отчёта его можно не только сохранить локально, но и опубликовать как собственный мини-сайт.</p>
-      <div class="note"><strong>Идея:</strong> если вы опубликуете HTML-страницу через GitHub Pages, у вас появится публичная ссылка, которой удобно делиться с преподавателем и использовать в портфолио.</div>
-      <div class="nav" style="margin-top:14px;">
-        <a class="btn primary" href="student_publish_site_guide.html">Открыть инструкцию по публикации</a>
-      </div>
-    </section>
+<section class="section">
+<h2>Этапы реализации проекта</h2>
+<ol class="text-list">
+<li>Анализ текущего состояния аудитории.</li>
+<li>Подготовка проекта модернизации.</li>
+<li>Обновление мебели и рабочих мест студентов.</li>
+<li>Модернизация преподавательской зоны.</li>
+<li>Установка интерактивной доски и мультимедийного оборудования.</li>
+<li>Финальная организация пространства и проверка готовности аудитории к занятиям.</li>
+</ol>
+</section>
 
-    <div class="footer">Перед сдачей проверьте, что текст ясен, структура логична, а выводы подтверждаются наблюдениями.</div>
-  </div>
+<section class="section">
+<h2>5. Визуальные материалы</h2>
+<p class="lead">Раздел показывает четыре пары изображений «до» и «после», демонстрирующих текущее состояние аудитории и проект её модернизации.</p>
 
-<script>
-function loadChecklistData(){
-  const raw = localStorage.getItem('workspaceChecklistData');
-  if(!raw) return;
-  try{
-    const data = JSON.parse(raw);
-    document.getElementById('sum').textContent = data.sum || '—';
-    document.getElementById('max').textContent = data.max || '—';
-    document.getElementById('percent').textContent = data.percent || '—';
-    document.getElementById('interp').textContent = data.interpretation || '—';
-    if(!document.getElementById('strengths').value) document.getElementById('strengths').value = data.strengths || '';
-    if(!document.getElementById('problems').value) document.getElementById('problems').value = data.problems || '';
-    if(!document.getElementById('improvements').value) document.getElementById('improvements').value = data.improvements || '';
-  } catch(e){}
-}
-function saveReport(){
-  const ids = ['studentName','objectName','purpose','strengths','problems','improvements','noBudget','withBudget','justification','finalConclusion'];
-  const payload = {};
-  ids.forEach(id => payload[id] = document.getElementById(id).value);
-  localStorage.setItem('workspaceReportDraft', JSON.stringify(payload));
-}
-function loadReport(){
-  const raw = localStorage.getItem('workspaceReportDraft');
-  if(!raw) return;
-  try{
-    const data = JSON.parse(raw);
-    Object.entries(data).forEach(([k,v]) => {
-      const el = document.getElementById(k);
-      if(el && !el.value) el.value = v || '';
-    });
-  } catch(e){}
-}
-document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.addEventListener('input', saveReport));
-loadChecklistData();
-loadReport();
-</script>
+<div class="compare-block">
+<h3>Визуализация 1. Общий вид аудитории</h3>
+<div class="compare-grid">
+<div class="compare-card"><img src="before_general.jpg" alt="До: Общий вид аудитории"><p class="caption">До модернизации</p></div>
+<div class="compare-card"><img src="after_general.png" alt="После: Общий вид аудитории"><p class="caption">После модернизации</p></div>
+</div>
+</div>
+<div class="compare-block">
+<h3>Визуализация 2. Боковой вид аудитории</h3>
+<div class="compare-grid">
+<div class="compare-card"><img src="before_side.jpg" alt="До: Боковой вид аудитории"><p class="caption">До модернизации</p></div>
+<div class="compare-card"><img src="after_side.png" alt="После: Боковой вид аудитории"><p class="caption">После модернизации</p></div>
+</div>
+</div>
+<div class="compare-block">
+<h3>Визуализация 3. Рабочее место преподавателя</h3>
+<div class="compare-grid">
+<div class="compare-card"><img src="before_teacher.jpg" alt="До: Рабочее место преподавателя"><p class="caption">До модернизации</p></div>
+<div class="compare-card"><img src="after_teacher.png" alt="После: Рабочее место преподавателя"><p class="caption">После модернизации</p></div>
+</div>
+</div>
+<div class="compare-block">
+<h3>Визуализация 4. Зона экрана и доски</h3>
+<div class="compare-grid">
+<div class="compare-card"><img src="before_board.jpg" alt="До: Зона экрана и доски"><p class="caption">До модернизации</p></div>
+<div class="compare-card"><img src="after_board.png" alt="После: Зона экрана и доски"><p class="caption">После модернизации</p></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>6. Итоговый вывод</h2>
+<p>В ходе выполнения работы был проведён аудит лекционной аудитории Факультета экономики и менеджмента. Анализ показал, что помещение выполняет основные учебные функции, имеет достаточную вместимость и базовое техническое оснащение, однако требует модернизации для соответствия современным требованиям образовательного процесса.</p>
+<p>Основными проблемами являются устаревшая мебель, отсутствие интерактивной доски, недостаточно современная организация рабочего места преподавателя и визуальная устарелость интерьера. В качестве решения предложен проект обновления аудитории: установка интерактивной доски, модернизация преподавательского места, обновление мебели, улучшение освещения и оформление пространства в едином современном стиле.</p>
+<p>Реализация проекта позволит повысить комфорт студентов и преподавателей, улучшить качество проведения занятий и создать более современную образовательную среду на факультете.</p>
+<div class="note" style="margin-top:14px;"><strong>Итог:</strong> модернизация аудитории является актуальной, реалистичной и полезной для образовательного процесса.</div>
+</section>
+
+<section class="section">
+<h2>7. Публикация итоговой работы</h2>
+<p class="lead">HTML-страницу можно загрузить на GitHub Pages или отправить преподавателю в виде архива вместе с изображениями.</p>
+</section>
+
+<div class="footer">Готовая работа: аудит лекционной аудитории и проект модернизации.</div>
+</div>
 </body>
 </html>
